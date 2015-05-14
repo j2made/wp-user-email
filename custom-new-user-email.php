@@ -1,12 +1,19 @@
 <?php
 /*
-Plugin Name: Custom New User Email
-Description: Changes the copy in the email sent out to new users
+ * Plugin Name:       Custom New User Email
+ * Plugin URI:        https://github.com/j2made/wp_new_user_email
+ * Description:       Changes the content in the email sent out to new users and the email address that send it.
+ * Version:           1.0.0
+ * Author:            J2 Design
+ * Author URI:        http://j2made.com
+ * License:           MIT
+ * License URI:       https://github.com/j2made/wp_new_user_email/blob/master/license.md
 */
 
-namespace J2\NewUserEmail;
+// REDEFINE NEW USER NOTIFICATION
+// ------------------------------
+// https://codex.wordpress.org/Function_Reference/wp_new_user_notification
 
-// Redefine user notification function
 if ( !function_exists('wp_new_user_notification') ) {
 
     $blog_name = get_option('blogname');
@@ -41,16 +48,20 @@ if ( !function_exists('wp_new_user_notification') ) {
     }
 }
 
-// NEW USER EMAIL ADDRESS
-// ----------------------
+// CHANGE EMAIL ADDRESS
+// --------------------
 // https://codex.wordpress.org/Plugin_API/Filter_Reference/wp_mail_from
 
-add_filter( 'wp_mail_from', __NAMESPACE__ . '\\custom_wp_mail_from' );
+add_filter( 'wp_mail_from', 'custom_wp_mail_from' );
 function custom_wp_mail_from( $original_email_address ) {
   return 'congreso@congreso.net';
 }
 
-add_filter( 'wp_mail_from_name', __NAMESPACE__ . '\\custom_wp_mail_from_name' );
+// CHANGE FROM EMAIL ADDRESS NAME
+// ------------------------------
+// https://codex.wordpress.org/Plugin_API/Filter_Reference/wp_mail_from_name
+
+add_filter( 'wp_mail_from_name', __NAMESPACE__ . 'custom_wp_mail_from_name' );
 function custom_wp_mail_from_name( $original_email_from ) {
     return get_option('blogname');
 }
