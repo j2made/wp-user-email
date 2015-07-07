@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name:       Custom New User Email
- * Plugin URI:        https://github.com/j2made/wp_new_user_email
+ * Plugin URI:        https://github.com/j2made/wp-user-email
  * Description:       Changes the content in the email sent out to new users and the email address that send it.
  * Version:           1.0.0
  * Author:            J2 Design
  * Author URI:        http://j2made.com
  * License:           MIT
- * License URI:       https://github.com/j2made/wp_new_user_email/blob/master/license.md
+ * License URI:       https://github.com/j2made/wp-user-email/blob/master/license.md
 */
 
 // REDEFINE NEW USER NOTIFICATION
