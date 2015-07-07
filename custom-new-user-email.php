@@ -54,7 +54,7 @@ if ( !function_exists('wp_new_user_notification') ) {
 
 add_filter( 'wp_mail_from', 'custom_wp_mail_from' );
 function custom_wp_mail_from( $original_email_address ) {
-  return 'congreso@congreso.net';
+  return get_option( 'admin_email' );
 }
 
 // CHANGE FROM EMAIL ADDRESS NAME
